@@ -7,9 +7,20 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
   </head>
   <body>
-    <h1>Hello World! (for now ...)</h1>
-    <div id="markdown-content">TODO</div>
+    <!-- This is the main container for the rendered content. -->
+    <div id="markdown-content">Please wait while javascript takes care of rendering the page from markdown ...</div>
     <!-- That is all we need, now load the script and get going! -->
-    <script type="text/javascript" src="use-markdown.js"></script>
+    <script type="text/javascript">
+      // Load and render markdown from given URL
+      function loadMdFromUrl(url) {
+        $.get(url, function(data) {
+          var converter = new showdown.Converter();
+          var html = converter.makeHtml(data);
+          $("#markdown-content").html(html);
+        });
+      }
+      // Load initial page to display.
+      loadMdFromUrl("content/hello.md");
+    </script>
   </body>
 </html>
