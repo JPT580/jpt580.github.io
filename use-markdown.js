@@ -6,6 +6,7 @@ function loadMdFromUrl(url) {
     var html = converter.makeHtml(data);
     $("#markdown-content").html(html);
   });
+}
 
 // TODO: Add more, add menu, add ...
 loadMdFromUrl("content/hello.md");
