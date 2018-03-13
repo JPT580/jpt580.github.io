@@ -1,9 +1,9 @@
 "use strict";
 
 function loadMdFromUrl(url) {
-  $.get(url, function(date) {
+  $.get(url, function(data) {
     var converter = new showdown.Converter();
-    var html = converter.makeHtml(text);
+    var html = converter.makeHtml(data);
     $("#markdown-content").html(html);
   });
 
